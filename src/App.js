@@ -25,22 +25,29 @@ class BooksApp extends React.Component {
     }
     //update shelf information when change book's shelf
     update = (e, c) => {
-      BooksAPI.update(c, e)
+      console.log(e,c)
+      BooksAPI.update(c, e).then((reponse)=>{
+        console.log(reponse)
+      })
       let books = this.state.books;
       console.log(e, c);
       books.map(book => {
         (book.id === c.id) && (book.shelf = e)
       });
+      console.log(books)
       this.setState({
         books: books
       })
     }
     //if book exist on shelf,then use update,neither add search book to shelf
     add = (e, c) => {
+      console.log(e,c)
       if(c.shelf!=='none'){
         this.update(e,c)
       }else{
-        BooksAPI.update(c, e);
+        BooksAPI.update(c, e).then((reponse)=>{
+          console.log(reponse)
+        })
         console.log(c, e)
         c.shelf = e;
         console.log(this.state.books);

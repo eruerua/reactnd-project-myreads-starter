@@ -9,23 +9,31 @@ class SearchBook extends Component{
     result:[]
   }
 //serach function
-  updateQuery = (query) => {
-    if (query) {
-      BooksAPI.search(query).then(books => {
+  updateQuery = (event) => {
+    self=this;
+    let query=event.target.value;
+    let key=event.keyCode;
+    console.log(query,key)
+    if (query&&key===13) {
+      BooksAPI.search(query,function(books){
+        console.log('callback')
+        console.log(self)
         if (books.length) {
           books.map(book=>{
-            this.props.books.map(shelfBook=>{
+            book.shelf='none'
+            self.props.books.map(shelfBook=>{
               if(book.id==shelfBook.id){
                 book.shelf=shelfBook.shelf
               }
             })
+
           })
-          this.setState({
+          self.setState({
             result: books
           })
-          console.log(books)
+          console.log(self.state.result)
         } else {
-          this.setState({
+          self.setState({
             result: []
           })
         }
@@ -42,7 +50,7 @@ class SearchBook extends Component{
         <div className="search-books-bar">
           <Link to='/' className="close-search">Close</Link>
           <div className="search-books-input-wrapper">
-            <input type="text" placeholder="Search by title or author" onChange={(event) => this.updateQuery(event.target.value)}/>
+            <input type="text" placeholder="Search by title or author" onKeyDown={(event) => this.updateQuery(event)}/>
           </div>
         </div>
         <div className="search-books-results">

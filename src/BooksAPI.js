@@ -1,7 +1,6 @@
-
+import getJSON from 'get-json'
 const api = "https://reactnd-books-api.udacity.com"
-
-
+const searchApi = "https://api.douban.com/v2/book/search"
 // Generate a unique token for storing your bookshelf data on the backend server.
 let token = localStorage.token
 if (!token)
@@ -32,13 +31,16 @@ export const update = (book, shelf) =>
     body: JSON.stringify({ shelf })
   }).then(res => res.json())
 
-export const search = (query, maxResults) =>
-  fetch(`${api}/search`, {
-    method: 'POST',
-    headers: {
-      ...headers,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ query, maxResults })
-  }).then(res => res.json())
-    .then(data => data.books)
+export const search = (query,callBack) =>
+  (
+    getJSON(`${searchApi}?q=${query}`,(error,response)=>{
+      if(error){
+        console.log('error')
+      }else{
+        console.log('ok')
+        console.log(response)
+        callBack(response.books)
+      }
+    }
+  )
+)
