@@ -1,10 +1,13 @@
 {
   "dependencies": {
+    "form-serialize": "^0.7.2",
     "get-json": "0.0.3",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-router-dom": "^4.1.1"
+    "react-router-dom": "^4.1.1",
+    "wilddog": "^2.5.10",
+    "wilddog-react": "^1.0.0"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"
