@@ -5,11 +5,12 @@ import './App.css'
 class Register extends React.Component {
 
   register(email,password) {
+    self=this
       this.props.user.auth().createUserWithEmailAndPassword(email, password).then(function(user) {
           // 获取用户
-          console.log(user);
           // user.sendEmailVerification();
-          alert('success')
+          alert('注册成功')
+          self.props.back()
       }).catch(function(error) {
           // 错误处理
           console.log(error);
@@ -30,7 +31,7 @@ class Register extends React.Component {
       <form onSubmit={this.handleSubmit} className='register-form'>
         <div className='register-details'>
           <input type='text' name='email' placeholder='Email' />
-          <input type='text' name='password' placeholder='password' />
+          <input type='password' name='password' placeholder='Password' />
           <button>Register</button>
         </div>
       </form>

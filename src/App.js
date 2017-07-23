@@ -98,7 +98,7 @@ class BooksApp extends React.Component {
             () =>
             (<ShowBook shelfs={this.state.shelfs} books={this.state.books} update={this.update}/>)
       }/>
-      <Route path='/register' render={()=>(<Register user={this.state.user}/>)}/>
+      <Route path='/register' render={({history})=>(<Register user={this.state.user} back={()=>{history.push('/')}}/>)}/>
       <Route path='/login' render={({history})=>(<Login user={this.state.user} refs={(ref,bookList)=>{
         this.refUser(ref,bookList)
         history.push('/')

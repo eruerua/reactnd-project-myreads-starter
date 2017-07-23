@@ -14,13 +14,11 @@ class Login extends React.Component {
           uid = self.props.user.auth().currentUser.uid;
           ref = self.props.user.sync().ref("books/" + uid);
           ref.child('allbooks').once('value', function(snapshot){
-            console.log(snapshot.val())
             let bookObject = snapshot.val()
             let bookList=[]
             for(let key in bookObject){
               bookList.push(bookObject[key])
             }
-            console.log(bookList)
             self.props.refs(ref,bookList);
           })
 
@@ -44,7 +42,7 @@ class Login extends React.Component {
       <form onSubmit={this.handleSubmit} className='login-form'>
         <div className='login-details'>
           <input type='text' name='email' placeholder='Email' />
-          <input type='text' name='password' placeholder='password' />
+          <input type='password' name='password' placeholder='password' />
           <button>Log In</button>
         </div>
       </form>

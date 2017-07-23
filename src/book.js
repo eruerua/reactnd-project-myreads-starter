@@ -8,7 +8,7 @@ class Book extends Component{
       <li>
       <div className="book">
         <div className="book-top">
-          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.info.images.medium})` }}></div>
+          <div className="book-cover" style={{ width: 105, height: 141, backgroundImage: `url(${this.props.info.images.medium})` }}></div>
           <BookShelfChanger shelf={this.props.shelf} info={this.props.info} updateShelfDate={this.props.updateShelfDate} />
         </div>
         <div className="book-title">{this.props.info.title}</div>

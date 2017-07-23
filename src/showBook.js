@@ -11,6 +11,12 @@ class ShowBook extends React.Component{
           <h1>
             MyReads
           </h1>
+          <h2>
+          <Link to='/login'>Log in</Link>  
+          </h2>
+          <h2>
+          <Link to='/register'>Register</Link>
+          </h2>
         </div>
       <div className = "list-books-content" > {
         this.props.shelfs.map((shelf, index) => (
