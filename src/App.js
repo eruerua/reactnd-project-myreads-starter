@@ -6,6 +6,7 @@ import Book from './book'
 import ShowBook from './showBook'
 import Register from './register'
 import Login from './login'
+import MainPage from './mainpage'
 import { Route } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 var Wilddog = require("wilddog");
@@ -92,16 +93,18 @@ class BooksApp extends React.Component {
       console.log(this.state.books)
       return (
         <div className="app">
+        <Route exact path='/' render={() =>
+          (<MainPage />)}/>
         <Route path='/search' render={() =>
           (<SearchBook books={this.state.books} update={this.add}/>)}/>
-        <Route exact path='/' render={
+        <Route path='/home' render={
             () =>
             (<ShowBook shelfs={this.state.shelfs} books={this.state.books} update={this.update}/>)
       }/>
-      <Route path='/register' render={({history})=>(<Register user={this.state.user} back={()=>{history.push('/')}}/>)}/>
+      <Route path='/register' render={({history})=>(<Register user={this.state.user} back={()=>{history.push('/home')}}/>)}/>
       <Route path='/login' render={({history})=>(<Login user={this.state.user} refs={(ref,bookList)=>{
         this.refUser(ref,bookList)
-        history.push('/')
+        history.push('/home')
       }}/>)}/>
 
       </div>)

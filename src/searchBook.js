@@ -48,7 +48,7 @@ class SearchBook extends Component{
     return(
       <div className="search-books">
         <div className="search-books-bar">
-          <Link to='/' className="close-search">Close</Link>
+          <Link to='/home' className="close-search">Close</Link>
           <div className="search-books-input-wrapper">
             <input type="text" placeholder="Search by title or author" onKeyDown={(event) => this.updateQuery(event)}/>
           </div>

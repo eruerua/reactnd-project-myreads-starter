@@ -9,13 +9,13 @@ class ShowBook extends React.Component{
       <div className = "list-books" >
         <div className="list-books-title">
           <h1>
-            MyReads
+              我的书架
           </h1>
           <h2>
-          <Link to='/login'>Log in</Link>  
+            <Link to='/login'>登录</Link>
           </h2>
           <h2>
-          <Link to='/register'>Register</Link>
+            <Link to='/register'>注册</Link>
           </h2>
         </div>
       <div className = "list-books-content" > {

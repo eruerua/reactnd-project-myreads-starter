@@ -16,9 +16,15 @@ body, .app {
   text-align: center;
 }
 .list-books-title h1 {
+  display: inline-block;
   font-weight: 400;
   margin: 0;
   color: white;
+}
+.list-books-title h2{
+  display: inline-block;
+  float: right;
+  margin-left: 10px;
 }
 
 .list-books-content {
@@ -273,4 +279,47 @@ body, .app {
   font-size: inherit;
   border: none;
   outline: 0;
+}
+
+/*mainpage pic*/
+.main-page{
+  width: 50%;
+  margin: 0 auto;
+}
+
+.main-pic {
+    width: 100%;
+    border-radius: 5%;
+}
+
+.main-page-title h2{
+  display: inline-block;
+  float: right;
+  margin-left: 10px;
+}
+
+.text-center{
+  text-align: center;
+}
+
+a:visited,
+a:hover,
+a:focus,
+a:active {
+    color: #cb2e5a;
+}
+
+a {
+    text-decoration: none;
+}
+
+@media only screen and (max-width:600px) {
+  .main-page{
+    width: 100%;
+  }
+
+  .main-pic {
+      width: 100%;
+      border-radius: 1%;
+    }
 }

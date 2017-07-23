@@ -10,7 +10,7 @@ class Login extends React.Component {
       console.log(this.props)
       this.props.user.auth().signInWithEmailAndPassword(email, password).then(function(user) {
           // 获取用户
-          console.log(user);
+          alert("登录成功，按确认跳转到书架")
           uid = self.props.user.auth().currentUser.uid;
           ref = self.props.user.sync().ref("books/" + uid);
           ref.child('allbooks').once('value', function(snapshot){
@@ -24,7 +24,7 @@ class Login extends React.Component {
 
       }).catch(function(error) {
           // 错误处理
-          console.log(error);
+          alert(error);
       });
   }
 
@@ -43,7 +43,7 @@ class Login extends React.Component {
         <div className='login-details'>
           <input type='text' name='email' placeholder='Email' />
           <input type='password' name='password' placeholder='password' />
-          <button>Log In</button>
+          <button>登录</button>
         </div>
       </form>
       </div>

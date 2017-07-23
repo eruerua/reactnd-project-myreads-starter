@@ -9,11 +9,11 @@ class Register extends React.Component {
       this.props.user.auth().createUserWithEmailAndPassword(email, password).then(function(user) {
           // 获取用户
           // user.sendEmailVerification();
-          alert('注册成功')
+          alert('注册成功，按确认跳转到书架')
           self.props.back()
       }).catch(function(error) {
           // 错误处理
-          console.log(error);
+          alert(error);
       });
   }
 
@@ -32,7 +32,7 @@ class Register extends React.Component {
         <div className='register-details'>
           <input type='text' name='email' placeholder='Email' />
           <input type='password' name='password' placeholder='Password' />
-          <button>Register</button>
+          <button>注册</button>
         </div>
       </form>
       </div>
