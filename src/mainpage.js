@@ -21,6 +21,9 @@ class MainPage extends React.Component {
           <h4 className='text-center'>
             ----<a href="http://paulsin.blogspot.com/" target="_blank">「狂人日记」</a>Paul Sin
           </h4>
+          <h4 className='text-center'>
+          注册后登录，在我的书架页面可以按右下角+图标来添加书籍，可以添加到currentReading（正在读），wantRead（想读）和Read（读过）三个不同的书架上
+          </h4>
       </div>
     )
   }
